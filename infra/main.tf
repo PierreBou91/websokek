@@ -28,7 +28,7 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_firewall" "firewall" {
-  name    = "admin-ssh"
+  name    = "websokek-firewall"
   network = google_compute_network.vpc_network.name
 
   allow {
@@ -36,7 +36,11 @@ resource "google_compute_firewall" "firewall" {
     ports    = ["22"]
   }
 
-  source_ranges = [var.pierre_ip]
+  allow {
+    protocol = "icmp"
+  }
+
+  source_ranges = [var.pierre_ip, var.alex_ip]
   target_tags   = ["server"]
 }
 

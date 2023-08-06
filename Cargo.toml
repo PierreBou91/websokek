@@ -3,6 +3,9 @@ name = "websokek"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+env_logger = "0.10.0"
+futures-util = "0.3.28"
+log = "0.4.19"
+tokio = { version = "1.29.1", features = ["full"] }
+tokio-tungstenite = { version = "0.20.0", features = ["tokio-rustls"] }

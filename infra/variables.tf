@@ -11,3 +11,5 @@ variable "gcp_zone" {
 }
 
 variable "pierre_ip" {}
+
+variable "alex_ip" {}
