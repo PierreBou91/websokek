@@ -28,7 +28,7 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_firewall" "firewall" {
-  name    = "websokek-firewall"
+  name    = "ping-ssh"
   network = google_compute_network.vpc_network.name
 
   allow {
@@ -41,6 +41,32 @@ resource "google_compute_firewall" "firewall" {
   }
 
   source_ranges = [var.pierre_ip, var.alex_ip]
+  target_tags   = ["server"]
+}
+
+resource "google_compute_firewall" "sshall" {
+  name    = "sshall"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22", "80", "443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+
+}
+
+resource "google_compute_firewall" "quic" {
+  name    = "quic"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "udp"
+    ports    = ["443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["server"]
 }
 

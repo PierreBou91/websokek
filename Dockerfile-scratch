@@ -4,7 +4,7 @@ FROM rust:latest AS build
 WORKDIR /usr/src/
 
 # Install musl-tools
-RUN apt-get update && apt-get install -y musl-tools
+RUN apt-get update && apt-get install -y musl-tools cmake
 
 # Copy over your source code
 COPY . .

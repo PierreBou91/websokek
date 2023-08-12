@@ -8,3 +8,8 @@ infra/terraform.tfstate*
 
 # Apple stuff
 .DS_Store
+
+# Cert/TLS secret stuff
+*.key
+*.pem
+*.crt

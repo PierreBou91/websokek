@@ -1,0 +1,7 @@
+- dns zone
+- dns A & CAA records
+- registrar nameservers
+- certbot container auto validation:
+  docker run -it --rm --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 80:80 certbot/certbot certonly --standalone -d domain.name
+- run command:
+  docker run -d -p 443:4433/udp -e RUST_LOG=debug --mount src=/absolute/cert/folder,target=/cert,type=bind -e CERT_PATH=/path/cert -e KEY_PATH=/path/key image:tag

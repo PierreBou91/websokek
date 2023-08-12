@@ -4,8 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-env_logger = "0.10.0"
-futures-util = "0.3.28"
-log = "0.4.19"
-tokio = { version = "1.29.1", features = ["full"] }
-tokio-tungstenite = { version = "0.20.0", features = ["tokio-rustls"] }
+tokio = { version = "1.30.0", features = ["rt-multi-thread"] }
+wtransport = "0.1.3"
